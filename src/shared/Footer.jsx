@@ -5,24 +5,21 @@ const Footer = () => {
       <aside>
         <img src={logo} alt="" />
         <p>
-          ACME Industries Ltd.
+          Car Doctor Industries Ltd.
           <br />
-          Providing reliable tech since 1992
+          Edwin Diaz is a software <br />and web technologies engineer, <br />a life coach trainer who is also a serial .
         </p>
       </aside>
       <nav>
-        <h6 className="footer-title">Services</h6>
-        <a className="link link-hover">Branding</a>
-        <a className="link link-hover">Design</a>
-        <a className="link link-hover">Marketing</a>
-        <a className="link link-hover">Advertisement</a>
+        <h6 className="footer-title">About</h6>
+        <a className="link link-hover">Home</a>
+        <a className="link link-hover">Service</a>
+        <a className="link link-hover">Contact</a>
+        
       </nav>
       <nav>
         <h6 className="footer-title">Company</h6>
-        <a className="link link-hover">About us</a>
-        <a className="link link-hover">Contact</a>
-        <a className="link link-hover">Jobs</a>
-        <a className="link link-hover">Press kit</a>
+        <a className="link link-hover">Why Car Doctor About</a>
       </nav>
       <nav>
         <h6 className="footer-title">Legal</h6>

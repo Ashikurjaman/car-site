@@ -1,4 +1,5 @@
-import React from "react";
+
+
 import { Link } from "react-router-dom";
 import logo from "../assets/logo.svg";
 
@@ -45,7 +46,7 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="navbar-end">
-        <a className="btn">Button</a>
+        <a className="btn btn-outline btn-accent">Appointment</a>
       </div>
     </div>
   );
