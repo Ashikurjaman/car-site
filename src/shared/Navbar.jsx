@@ -1,12 +1,28 @@
 
 
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import logo from "../assets/logo.svg";
+import { useContext } from "react";
+import { UserContext } from "../Components/Context/AuthContext";
 
 const Navbar = () => {
+  const {user,logout} = useContext(UserContext)
+  const handelLogout =()=>{
+    logout()
+    .then(() => {
+      // Sign-out successful.
+      <Navigate to={'/'}></Navigate>
+    }).catch((error) => {
+      // An error happened.
+    });
+  }
   const navItems = <>
         <li><Link to={'/'}>Home</Link></li>
         <li><Link to={'/'}>Services</Link></li>
+        {
+          user? <li onClick={handelLogout}><Link>logout</Link></li>:
+          <li><Link to={'/login'}>Login</Link></li>
+        }
   </>
   
   return (
