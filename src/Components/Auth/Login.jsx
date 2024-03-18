@@ -1,10 +1,13 @@
-import { Link } from 'react-router-dom';
+import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
 import img from '../../assets/images/login/login.svg'
 import { useContext } from 'react';
 import { UserContext } from '../Context/AuthContext';
 import Swal from 'sweetalert2';
+import axios from 'axios';
 const Login = () => {
-    const {login,user} = useContext(UserContext)
+    const {login} = useContext(UserContext)
+    const navigate = useNavigate();
+    const location =useLocation();
     const handelSubmitLogin = e =>{
         e.preventDefault();
         const form = e.target;
@@ -13,10 +16,24 @@ const Login = () => {
         login(email,password)
         .then((result) => {
             // Signed in 
-            const data = result.user;
+            const loggedInUser = result.user;
+            const user = {email};
+            axios.post('http://localhost:5000/jwt',user,{
+              withCredentials:true
+            })
+            .then(res=> {
+              console.log(res.data);
+              if(res.data.success){
+                navigate(location?.state ? location.state : '/')
+              }
+            })
+            .catch(function (error) {
+              console.log(error);
+            });
+
             
             Swal.fire({
-                title: "Custom animation with Animate.css",
+                title: "Login Successfully",
                 showClass: {
                   popup: `
                     animate__animated
@@ -33,11 +50,20 @@ const Login = () => {
                 }
               });
             // ...
+             
+          // navigate(location?.state ? location.state : '/')
+          form.reset();
             
           })
           .catch((error) => {
             
             const errorMessage = error.message;
+            Swal.fire({
+              icon: "error",
+              title: "Oops...",
+              text: errorMessage,
+              footer: '<a href="#">Why do I have this issue?</a>'
+            });
             console.log(errorMessage);
           });
         

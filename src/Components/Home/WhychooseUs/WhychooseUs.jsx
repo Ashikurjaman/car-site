@@ -14,7 +14,7 @@ const WhychooseUs = () => {
         <br /> or randomized words which do not look even slightly believable.
       </p>
       <div className="grid lg:grid-cols-5 gap-8 justify-center mt-16 mb-8">
-        <div className="card bg-base-100 shadow-xl">
+        <div className="card bg-base-100 shadow-xl hover:bg-orange-500 hover:-translate-y-8 transition-all">
           <figure className="px-10 pt-10">
             <img src={img1} className="rounded-xl w-[24px] h-[24px]" />
           </figure>
@@ -24,7 +24,7 @@ const WhychooseUs = () => {
             
           </div>
         </div>
-        <div className="card  bg-base-100 shadow-xl">
+        <div className="card  bg-base-100 shadow-xl hover:bg-orange-500 hover:-translate-y-8 transition-all">
           <figure className="px-10 pt-10">
             <img src={img2} className="rounded-xl w-[24px] h-[24px]" />
           </figure>
@@ -34,7 +34,7 @@ const WhychooseUs = () => {
             
           </div>
         </div>
-        <div className="card  bg-base-100 shadow-xl">
+        <div className="card  bg-base-100 shadow-xl hover:bg-orange-500 hover:-translate-y-8 transition-all">
           <figure className="px-10 pt-10">
             <img src={img3} className="rounded-xl w-[24px] h-[24px]" />
           </figure>
@@ -45,7 +45,7 @@ const WhychooseUs = () => {
             
           </div>
         </div>
-        <div className="card  bg-base-100 shadow-xl">
+        <div className="card  bg-base-100 shadow-xl hover:bg-orange-500 hover:-translate-y-8 transition-all">
           <figure className="px-10 pt-10">
             <img src={img4} className="rounded-xl w-[24px] h-[24px]" />
           </figure>
@@ -56,7 +56,7 @@ const WhychooseUs = () => {
             
           </div>
         </div>
-        <div className="card  bg-base-100 shadow-xl">
+        <div className="card  bg-base-100 shadow-xl hover:bg-orange-500 hover:-translate-y-8 transition-all">
           <figure className="px-10 pt-10">
             <img src={img5} className="rounded-xl w-[24px] h-[24px]" />
           </figure>

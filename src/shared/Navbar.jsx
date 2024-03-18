@@ -1,6 +1,6 @@
 
 
-import { Link, Navigate } from "react-router-dom";
+import { Link, NavLink, Navigate } from "react-router-dom";
 import logo from "../assets/logo.svg";
 import { useContext } from "react";
 import { UserContext } from "../Components/Context/AuthContext";
@@ -17,11 +17,14 @@ const Navbar = () => {
     });
   }
   const navItems = <>
-        <li><Link to={'/'}>Home</Link></li>
-        <li><Link to={'/'}>Services</Link></li>
+        <li><NavLink to={'/'}>Home</NavLink></li>
+       {
+        user ?  <li><NavLink to={'/bookings'}>My Bookings</NavLink></li> :""
+       }
+        
         {
           user? <li onClick={handelLogout}><Link>logout</Link></li>:
-          <li><Link to={'/login'}>Login</Link></li>
+          <li><NavLink to={'/login'}>Login</NavLink></li>
         }
   </>
   
@@ -62,7 +65,7 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="navbar-end">
-        <a className="btn btn-outline btn-accent">Appointment</a>
+        <a href="#service" className="btn btn-outline btn-accent">Appointment</a>
       </div>
     </div>
   );
