@@ -1,7 +1,8 @@
+/* eslint-disable react/prop-types */
 import React from "react";
 
 const BookingsRow = ({ booking,handelDelete,handelConfirmBook }) => {
-  const { _id,customerName, email, date, price, service, img,status } = booking;
+  const { _id, email,date, price, service, img,status } = booking;
   return (
     <tr>
         <th>
@@ -34,6 +35,7 @@ const BookingsRow = ({ booking,handelDelete,handelConfirmBook }) => {
           </div>
         </div>
       </td>
+      <td>{date}</td>
       <td>{email}</td>
       <td>{price}</td>
       <th>

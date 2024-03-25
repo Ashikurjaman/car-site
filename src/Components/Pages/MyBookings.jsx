@@ -2,15 +2,17 @@ import { useContext, useEffect, useState } from "react";
 import { UserContext } from "../Context/AuthContext";
 import BookingsRow from "./BookingsRow";
 import Swal from "sweetalert2";
+import axios from "axios";
 
 const MyBookings = () => {
   const { user } = useContext(UserContext);
   const [bookings, setBookings] = useState([]);
   const url = `http://localhost:5000/bookings?email=${user.email}`
   useEffect(() => {
-    fetch(url)
-      .then((res) => res.json())
-      .then((data) => setBookings(data));
+    axios.get(url,{withCredentials:true})
+    .then(res=>{
+      setBookings(res.data)
+    })
   }, [url]);
   
   const handelDelete = id =>{
@@ -79,10 +81,10 @@ const MyBookings = () => {
     .then(data=>{
       console.log(data)
       if(data.modifiedCount > 0){
-        const remaing = bookings.filter(booking=>booking._id !== id)
+        const remaining = bookings.filter(booking=>booking._id !== id)
         const updateBook = bookings.find(booking=>booking._id === id)
         updateBook.status='confirm'
-        const setBooking= [updateBook, ...remaing]
+        const setBooking= [updateBook, ...remaining]
         setBookings(setBooking)
       }
     })
@@ -101,6 +103,7 @@ const MyBookings = () => {
             <tr>
             <th></th>
               <th>Service Name</th>
+              <th>Date</th>
               <th>Email</th>
               <th>Price</th>
               <th></th>
