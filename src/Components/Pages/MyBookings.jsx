@@ -12,6 +12,7 @@ const MyBookings = () => {
     axios.get(url,{withCredentials:true})
     .then(res=>{
       setBookings(res.data)
+      console.log(res.data)
     })
   }, [url]);
   

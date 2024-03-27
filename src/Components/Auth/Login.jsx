@@ -1,4 +1,4 @@
-import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import img from '../../assets/images/login/login.svg'
 import { useContext } from 'react';
 import { UserContext } from '../Context/AuthContext';
@@ -16,7 +16,7 @@ const Login = () => {
         login(email,password)
         .then((result) => {
             // Signed in 
-            const loggedInUser = result.user;
+            
             const user = {email};
             axios.post('http://localhost:5000/jwt',user,{
               withCredentials:true
